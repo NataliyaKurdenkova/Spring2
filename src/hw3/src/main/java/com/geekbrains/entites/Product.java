@@ -8,15 +8,15 @@ package com.geekbrains.entites;
 5. Сделать страницу, на которой отображаются все товары из репозитория.
  */
 public class Product {
-    private Long id;
-    private String name;
+    private int id;
+    private String title;
     private int cost;
     public Product(){
 
     }
-    public Product(Long id, String name, int cost){
+    public Product(int id, String title, int cost){
         this.id=id;
-        this.name=name;
+        this.title=title;
         this.cost = cost;
     }
 
@@ -28,19 +28,19 @@ public class Product {
         this.cost = cost;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title= title;
     }
 }

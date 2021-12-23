@@ -1,6 +1,7 @@
 package gb.artem.demo_spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,14 +14,14 @@ public class ProductsService {
         this.productsRepository = productsRepository;
     }
 
-  public Product[] getfindAll(int kolvo) {
+  /*public Product[] getfindAll(int kolvo) {
 
         return productsRepository.findAll(kolvo);
     }
-    public Product getProduct(int id) {
+   /* public Product getProduct(int id) {
 
         return productsRepository.newProduct(id);
-    }
+    }*/
 
     public Product getfindByID(int id) {
         return productsRepository.findOneById(id);
@@ -30,8 +31,7 @@ public class ProductsService {
 
     }
 
-   /* public Product[] getfindAll2(int kolvo) {
-
-        return productsRepository.findAll(kolvo);
-    }*/
+    public static List<Product> getAll() {
+        return ProductsRepository.findAll();
+    }
 }

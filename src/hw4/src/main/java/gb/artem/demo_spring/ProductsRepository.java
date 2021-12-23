@@ -16,7 +16,7 @@ public class ProductsRepository {
 
     }
     //все товары
-    public Product[] findAll(int kolvo) {
+   /* public Product[] findAll(int kolvo) {
         Product[] products=new Product[kolvo];
          for (int i = 0; i < kolvo; i++) {
 
@@ -25,6 +25,20 @@ public class ProductsRepository {
         }
 
         return products;
+
+    }*/
+    public static List<Product> findAll() {
+        int kolvo=5;
+       // Product[] products=new Product[kolvo];
+        List<Product> list = new ArrayList<>();
+        for (int i = 0; i < kolvo; i++) {
+
+            Product product=new Product(i,"Product "+i,i*5+2*i+12);
+
+            list.add(product);
+        }
+
+        return list;
 
     }
     //товар по id

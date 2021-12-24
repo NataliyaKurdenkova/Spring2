@@ -5,7 +5,7 @@
     <title>Spring Boot Thymeleaf Web Application</title>
 </head>
 <body>
-<h1>Welcome to Spring Boot Thymeleaf</h1>
+<h1>Welcome</h1>
 <p>
     Hey there! <th:block th:text="${message}">message</th:block>
 </p>

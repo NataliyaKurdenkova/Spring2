@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Shop Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript" th:src="@{/webjars/jquery/3.3.1/dist/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+
+<body>
+
+<div class="fluid-container" th:fragment="navi(activeTab)">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary ">
+        <!--<a class="navbar-brand" href="#">GeekMarket</a>-->
+        <img th:src="@{/images/icon.png}" />
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item" th:classappend="${activeTab == 'Shop' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/shop}">Студенты<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" th:classappend="${activeTab == 'Tovar' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/tovar}">Товары<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="visible-md" style="height:80px;"></div>
+</div>
+
+<div class="container">
+    <br>
+    <h1>@GeekMarket</h1>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>id</th>
+            <th>Название товара</th>
+            <th>Цена</th>
+            <th>Категория</th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tr class="responsive-row" th:each="tovar : ${tovars}">
+            <td th:text="${tovar.id}"/>
+            <td th:text="${tovar.title}"/>
+            <td th:text="${tovar.price}"/>
+            <td th:text="${tovar.category}"/>
+            <td>
+                <!--<button class="btn btn-primary infoBtn" th:attr="entryIndex=${tovar.id}">Info</button>-->
+                <!--<button class="btn btn-primary removeBtn" th:attr="entryIndex=${student.id}">Remove</button>-->
+                <a class="btn btn-danger" th:href="@{'/tovar/remove/' + ${tovar.id}}" role="button">Remove</a>
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+</body>
+</html>
